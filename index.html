@@ -198,7 +198,7 @@
 
     /* ── HOW IT WORKS ── */
     .how-section { padding: 120px 0; background: var(--white); border-top: 1px solid var(--border-light); }
-    .how-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 80px; gap: 40px; flex-wrap: wrap; }
+    .how-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 80px; gap: 40px; flex-wrap: wrap; }
     .how-headline { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 700; color: var(--black); line-height: 1.05; letter-spacing: -0.025em; max-width: 440px; }
     .how-subtext { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 360px; padding-top: 6px; }
     .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; position: relative; }
@@ -294,6 +294,13 @@
     @media (max-width: 768px) { .cta-section { padding: 80px 24px; } }
 
     /* ── FOOTER ── */
+    /* ── FAQ CONTACT ROW ── */
+    .faq-contact { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 48px; padding: 32px 36px; background: var(--bg-soft); border: 1.5px solid var(--border); border-radius: 4px; flex-wrap: wrap; }
+    .faq-contact-heading { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+    .faq-contact-sub { font-size: 0.9rem; color: var(--muted); }
+    .faq-contact-btn { background: var(--black); color: var(--white); padding: 12px 26px; border-radius: 2px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; transition: background 0.2s; }
+    .faq-contact-btn:hover { background: var(--gold); }
+
     /* ── BOOKING SECTION ── */
     .booking-section { padding: 130px 0; background: var(--bg-soft); border-top: 1px solid var(--border); }
     .booking-header { margin-bottom: 60px; }
@@ -474,7 +481,7 @@
         <ul class="pkg-features">
           <li>Professional Multiple Listing Service (MLS) Photography</li>
           <li>Drone Photography (Aerial Stills)</li>
-          <li>Signature Listing Video (Standard or Platinum Reel with drone footage)</li>
+          <li>Signature Listing Video</li>
           <li>Custom Listing Website</li>
         </ul>
         <div class="pkg-count">5 Services / Month</div>
@@ -491,7 +498,7 @@
           <li>Professional Multiple Listing Service (MLS) Photography</li>
           <li>Drone Photography (Aerial Stills)</li>
           <li>Twilight Photo and Video</li>
-          <li>Platinum Reel</li>
+          <li>Platinum Reel with drone footage</li>
           <li>Custom Listing Website</li>
         </ul>
         <div class="pkg-count">8 Services / Month</div>
@@ -579,6 +586,15 @@
       </div>
 
     </div>
+
+    <div class="faq-contact reveal">
+      <div class="faq-contact-text">
+        <p class="faq-contact-heading">Still have questions?</p>
+        <p class="faq-contact-sub">Can't find the answer? Contact us here:</p>
+      </div>
+      <a href="mailto:hello@primeanglevisuals.com" class="faq-contact-btn">Contact Us &rsaquo;</a>
+    </div>
+
   </div>
 </section>
 
