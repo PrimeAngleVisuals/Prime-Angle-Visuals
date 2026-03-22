@@ -46,7 +46,10 @@
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     .nav-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--black); letter-spacing: -0.01em; }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo { display: flex; flex-direction: column; gap: 2px; line-height: 1; }
+    .nav-logo-name { white-space: nowrap; }
+    .nav-logo-gold { color: var(--gold); }
+    .nav-phone { font-family: var(--font-body); font-size: 0.68rem; font-weight: 400; color: var(--muted); letter-spacing: 0.06em; white-space: nowrap; }
     .hero-eyebrow {
       display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--black); margin-bottom: 22px;
@@ -345,7 +348,7 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">Prime<span>Angle</span> Visuals</a>
+    <a href="#" class="nav-logo"><span class="nav-logo-name">Prime<span class="nav-logo-gold">Angle</span> Visuals</span><small class="nav-phone">(330) 770-1915</small></a>
     <ul class="nav-links">
       <li><a href="#why">Why Us</a></li>
       <li><a href="#packages">Packages</a></li>
@@ -475,7 +478,7 @@
           <li>Custom Listing Website</li>
         </ul>
         <div class="pkg-count">5 Services / Month</div>
-        <a href="#contact" class="pkg-cta pkg-cta-outline">Get Started</a>
+        <a href="#booking" class="pkg-cta pkg-cta-outline">Get Started</a>
       </div>
 
       <!-- Signature -->
@@ -492,7 +495,7 @@
           <li>Custom Listing Website</li>
         </ul>
         <div class="pkg-count">8 Services / Month</div>
-        <a href="#contact" class="pkg-cta pkg-cta-outline">Get Started</a>
+        <a href="#booking" class="pkg-cta pkg-cta-outline">Get Started</a>
       </div>
 
       <!-- Full Production -->
@@ -511,7 +514,7 @@
           <li>Custom Listing Website</li>
         </ul>
         <div class="pkg-count">10 Services / Month</div>
-        <a href="#contact" class="pkg-cta pkg-cta-gold">Get Started</a>
+        <a href="#booking" class="pkg-cta pkg-cta-gold">Get Started</a>
       </div>
 
       <!-- Custom -->
@@ -527,7 +530,7 @@
           <li>Priority scheduling</li>
         </ul>
         <div class="pkg-count">Unlimited Flexibility</div>
-        <a href="#contact" class="pkg-cta pkg-cta-outline">Contact Us</a>
+        <a href="#booking" class="pkg-cta pkg-cta-outline">Contact Us</a>
       </div>
 
     </div>
