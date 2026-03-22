@@ -291,6 +291,30 @@
     @media (max-width: 768px) { .cta-section { padding: 80px 24px; } }
 
     /* ── FOOTER ── */
+    /* ── BOOKING SECTION ── */
+    .booking-section { padding: 130px 0; background: var(--bg-soft); border-top: 1px solid var(--border); }
+    .booking-header { margin-bottom: 60px; }
+    .booking-headline { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; color: var(--black); line-height: 1.05; letter-spacing: -0.025em; max-width: 600px; margin-bottom: 16px; }
+    .booking-headline em { font-style: italic; color: var(--gold); }
+    .booking-sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 500px; }
+    .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 860px; }
+    @media (max-width: 640px) { .booking-form { grid-template-columns: 1fr; } .booking-section { padding: 72px 0; } }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--black); }
+    .form-input, .form-textarea, .form-select {
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 2px; padding: 14px 16px; transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%; outline: none; appearance: none;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.12); }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: pointer; }
+    .form-submit { margin-top: 8px; background: var(--black); color: var(--white); border: none; padding: 16px 40px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.25s, transform 0.2s; align-self: flex-start; }
+    .form-submit:hover { background: var(--gold); transform: translateY(-1px); }
+    .form-success { display: none; padding: 20px 24px; background: #f0faf4; border: 1.5px solid #7fcfa0; border-radius: 4px; color: #1a6b3c; font-size: 0.95rem; font-weight: 500; grid-column: 1 / -1; }
+
     .footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 0 36px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
     @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
@@ -326,7 +350,7 @@
       <li><a href="#why">Why Us</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact" class="nav-cta">Book a Shoot</a></li>
+      <li><a href="#booking" class="nav-cta">Book a Shoot</a></li>
     </ul>
   </div>
 </nav>
@@ -388,7 +412,7 @@
           <rect x="4" y="8" width="28" height="22" rx="3"/><path d="M32 15l8-4v20l-8-4"/>
         </svg>
         <h3 class="feature-title reveal-right">Social-Ready Formats</h3>
-        <p class="feature-desc reveal-right">Vertical reels, MLS video, and listing pages all included. Every package is built for agents who need content that performs on Instagram, TikTok, and MLS simultaneously.</p>
+        <p class="feature-desc reveal-right">Vertical reels, Multiple Listing Service (MLS) video, and listing pages all included. Every package is built for agents who need content that performs on Instagram, TikTok, and Multiple Listing Service (MLS) simultaneously.</p>
       </div>
     </div>
   </div>
@@ -445,7 +469,7 @@
         <div class="pkg-period">billed monthly</div>
         <div class="pkg-divider"></div>
         <ul class="pkg-features">
-          <li>Professional MLS Photography</li>
+          <li>Professional Multiple Listing Service (MLS) Photography</li>
           <li>Drone Photography (Aerial Stills)</li>
           <li>Signature Listing Video (Standard or Platinum Reel with drone footage)</li>
           <li>Custom Listing Website</li>
@@ -461,7 +485,7 @@
         <div class="pkg-period">billed monthly</div>
         <div class="pkg-divider"></div>
         <ul class="pkg-features">
-          <li>Professional MLS Photography</li>
+          <li>Professional Multiple Listing Service (MLS) Photography</li>
           <li>Drone Photography (Aerial Stills)</li>
           <li>Twilight Photo and Video</li>
           <li>Platinum Reel</li>
@@ -479,7 +503,7 @@
         <div class="pkg-period">billed monthly</div>
         <div class="pkg-divider"></div>
         <ul class="pkg-features">
-          <li>Professional MLS Photography</li>
+          <li>Professional Multiple Listing Service (MLS) Photography</li>
           <li>Drone Photography (Aerial Stills)</li>
           <li>Twilight Photo and Video</li>
           <li>Platinum Reel</li>
@@ -523,12 +547,12 @@
 
       <div class="faq-item">
         <button class="faq-q">What's included in each package? <span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Each package includes a curated set of services. Starter covers MLS photography, drone stills, a listing video, and a custom listing website. Signature and Full Production add twilight shoots, platinum reels, and social-ready teaser videos. All packages include full content rights and same-week delivery.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Each package includes a curated set of services. Starter covers Multiple Listing Service (MLS) photography, drone stills, a listing video, and a custom listing website. Signature and Full Production add twilight shoots, platinum reels, and social-ready teaser videos. All packages include full content rights and same-week delivery.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q">How quickly do I receive my content? <span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Standard turnaround is 48–72 hours after the shoot. Full Production and out-of-state packages range from 3–5 business days depending on scope. Priority delivery is available on the Custom and Package 03 out-of-state tiers.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Standard turnaround is 48–72 hours after the shoot. Full Production packages range from 3–5 business days depending on scope. Priority delivery is available on the Custom Package.</div></div>
       </div>
 
       <div class="faq-item">
@@ -538,7 +562,7 @@
 
       <div class="faq-item">
         <button class="faq-q">What format are deliverables? <span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">You receive high-resolution edited video files (MP4, web and MLS optimized), edited photos (high-res JPEG), and vertical reels formatted for Instagram, TikTok, and YouTube Shorts. Custom listing websites are delivered as live, shareable URLs.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You receive high-resolution edited video files (MP4, web and Multiple Listing Service (MLS) optimized), edited photos (high-res JPEG), and vertical reels formatted for Instagram, TikTok, and YouTube Shorts. Custom listing websites are delivered as live, shareable URLs.</div></div>
       </div>
 
       <div class="faq-item">
@@ -555,13 +579,82 @@
   </div>
 </section>
 
+<!-- BOOKING -->
+<section class="booking-section" id="booking">
+  <div class="container">
+    <div class="booking-header reveal">
+      <span class="section-label">Schedule Your Shoot</span>
+      <h2 class="booking-headline">Book a <em>Shoot</em></h2>
+      <p class="booking-sub">Fill out the form below and we'll confirm your booking within 24 hours.</p>
+    </div>
+    <form class="booking-form" action="https://formspree.io/f/mjgaqrbv" method="POST" id="bookingForm">
+      <div class="form-group">
+        <label class="form-label" for="name">Your Name</label>
+        <input class="form-input" type="text" id="name" name="name" placeholder="Jane Smith" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="jane@realty.com" required>
+        <input type="hidden" name="_replyto" id="_replyto">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="phone">Phone Number</label>
+        <input class="form-input" type="tel" id="phone" name="phone" placeholder="(330) 000-0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="package">Package</label>
+        <select class="form-select form-input" id="package" name="package">
+          <option value="" disabled selected>Select a package</option>
+          <option value="Starter">Starter</option>
+          <option value="Signature">Signature</option>
+          <option value="Full Production">Full Production</option>
+          <option value="Custom">Custom</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="date">Preferred Date</label>
+        <input class="form-input" type="date" id="date" name="preferred_date" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="time">Preferred Time</label>
+        <select class="form-select form-input" id="time" name="preferred_time">
+          <option value="" disabled selected>Select a time</option>
+          <option value="7:00 AM">7:00 AM</option>
+          <option value="8:00 AM">8:00 AM</option>
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label class="form-label" for="address">Property Address</label>
+        <input class="form-input" type="text" id="address" name="property_address" placeholder="123 Main St, City, OH 44000" required>
+      </div>
+      <div class="form-group full">
+        <label class="form-label" for="details">Property Details</label>
+        <textarea class="form-textarea" id="details" name="property_details" placeholder="Tell us about the property — square footage, number of bedrooms, special features, access instructions, or anything else we should know before the shoot."></textarea>
+      </div>
+      <div class="form-group full">
+        <button type="submit" class="form-submit">Request Booking</button>
+      </div>
+      <div class="form-success" id="formSuccess">Your booking request has been sent! We'll confirm within 24 hours.</div>
+    </form>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <span class="cta-label reveal">Ready When You Are</span>
   <h2 class="cta-headline reveal">Ready to Elevate<br>Your <em>Listings?</em></h2>
   <p class="cta-sub reveal">Join agents closing deals faster with cinematic content that commands attention from the very first frame.</p>
   <div class="reveal">
-    <a href="mailto:hello@primeanglevisuals.com" class="btn-gold">Book a Shoot</a>
+    <a href="#booking" class="btn-gold">Book a Shoot</a>
   </div>
 </section>
 
@@ -687,6 +780,26 @@
       }
     });
   });
+
+  // ── Booking form submission
+  const bookingForm = document.getElementById('bookingForm');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      document.getElementById('_replyto').value = document.getElementById('email').value;
+      const btn = bookingForm.querySelector('.form-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(bookingForm.action, { method: 'POST', body: new FormData(bookingForm), headers: { Accept: 'application/json' } });
+        if (res.ok) {
+          bookingForm.reset();
+          document.getElementById('formSuccess').style.display = 'block';
+          btn.style.display = 'none';
+        } else { btn.textContent = 'Error — try again'; btn.disabled = false; }
+      } catch { btn.textContent = 'Error — try again'; btn.disabled = false; }
+    });
+  }
 
   // ── Smooth anchor scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
