@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Angle Visuals — Cinematic Real Estate Videography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #FFFFFF;
+      --black: #0D0D0D;
+      --gold: #C9A84C;
+      --gold-hover: #b8922e;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #e4e0da;
+      --border-light: #f0ede9;
+      --bg-soft: #faf9f7;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+      --nav-h: 80px;
+    }
+
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { background: var(--white); color: var(--text); font-family: var(--font-body); overflow-x: hidden; max-width: 100vw; }
+    a { text-decoration: none; color: inherit; }
+    img, video { display: block; max-width: 100%; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 52px; }
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+      z-index: 1000; display: flex; align-items: center;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--black); letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--gold); }
+    .hero-eyebrow {
+      display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--black); margin-bottom: 22px;
+      opacity: 0; transform: translateY(20px);
+      text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 1px 4px rgba(255,255,255,0.8);
+    }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text); letter-spacing: 0.03em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--black) !important; color: var(--white) !important;
+      padding: 10px 22px; border-radius: 2px; font-weight: 600 !important;
+      font-size: 0.75rem !important; letter-spacing: 0.1em !important;
+      text-transform: uppercase; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold) !important; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    @media (max-width: 768px) {
+      .marquee-section { padding: 16px 0; }
+      .why-section { padding: 48px 0; }
+      .hero-canvas {
+        width: 100%;
+        left: 0;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+      .hero-canvas-overlay {
+        background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.35) 100%);
+      }
+      .hero-content {
+        padding: 32px 24px;
+        max-width: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.6) 70%, transparent 100%);
+        border-radius: 0 12px 12px 0;
+        margin-left: 0;
+      }
+      .hero-headline {
+        text-shadow: 0 0 30px rgba(255,255,255,1), 0 2px 10px rgba(255,255,255,0.9);
+      }
+      .hero-eyebrow {
+        color: var(--black) !important;
+        text-shadow: 0 1px 4px rgba(255,255,255,0.8);
+      }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: var(--white);
+    }
+    .hero-sticky {
+      height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden; padding-top: var(--nav-h);
+    }
+    .hero-canvas {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 68%;
+      -webkit-mask-image: radial-gradient(ellipse 95% 92% at 65% 50%, black 20%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.3) 65%, transparent 82%);
+      mask-image: radial-gradient(ellipse 95% 92% at 65% 50%, black 20%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.3) 65%, transparent 82%);
+      z-index: 0;
+    }
+    .hero-canvas-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.1) 45%, transparent 65%);
+      pointer-events: none; z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: left;
+      padding: 48px 52px; max-width: 560px;
+    }
+    .hero-headline {
+      font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 8.5rem);
+      font-weight: 700; line-height: 0.95; color: var(--black);
+      letter-spacing: -0.03em; margin-bottom: 28px;
+      opacity: 0; transform: translateY(30px);
+      text-shadow: 0 0 40px rgba(255,255,255,0.95), 0 2px 12px rgba(255,255,255,0.8), 0 0 80px rgba(255,255,255,0.6);
+    }
+    .hero-headline em { font-style: italic; color: var(--gold); text-shadow: 0 1px 8px rgba(0,0,0,0.6), 0 0 20px rgba(0,0,0,0.4); }
+    .hero-cta-group {
+      display: flex; gap: 14px; justify-content: flex-start;
+      flex-wrap: wrap; opacity: 0; transform: translateY(20px);
+    }
+    .btn-gold {
+      background: var(--gold); color: var(--white); padding: 16px 36px;
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; border: none;
+      border-radius: 2px; cursor: pointer; transition: background 0.25s, transform 0.25s;
+      display: inline-block;
+    }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid var(--black); color: var(--black); padding: 15px 32px;
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px;
+      transition: all 0.25s; background: transparent; display: inline-block; cursor: pointer;
+    }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--muted); font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; z-index: 2; opacity: 0;
+      text-shadow: 0 0 12px rgba(255,255,255,0.9), 0 1px 4px rgba(255,255,255,0.8);
+    }
+    .scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--gold), transparent); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+    /* ── MARQUEE ── */
+    .marquee-section {
+      overflow: hidden; padding: 36px 0;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item {
+      font-family: var(--font-display); font-size: clamp(1.4rem, 3.5vw, 3.2rem);
+      font-weight: 700; color: var(--black); white-space: nowrap; padding: 0 32px;
+      letter-spacing: -0.01em;
+    }
+    .marquee-item .dot { color: var(--gold); margin: 0 14px; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+
+    /* ── WHY SECTION ── */
+    .why-section { padding: 130px 0; background: var(--white); }
+    .why-headline {
+      font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700; color: var(--black); line-height: 1.05;
+      letter-spacing: -0.025em; max-width: 680px; margin-bottom: 72px;
+    }
+    .why-headline em { font-style: italic; color: var(--gold); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 64px; }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; gap: 48px; } }
+    .feature-num { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 20px; }
+    .feature-icon { width: 44px; height: 44px; color: var(--gold); margin-bottom: 22px; }
+    .feature-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 12px; }
+    .feature-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.8; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { padding: 120px 0; background: var(--white); border-top: 1px solid var(--border-light); }
+    .how-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 80px; gap: 40px; flex-wrap: wrap; }
+    .how-headline { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 700; color: var(--black); line-height: 1.05; letter-spacing: -0.025em; max-width: 440px; }
+    .how-subtext { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 360px; padding-top: 6px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; position: relative; }
+    .steps-grid::before { display: none; }
+    @media (max-width: 900px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } .steps-grid::before { display: none; } }
+    @media (max-width: 480px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; color: var(--gold); opacity: 0.35; line-height: 1; margin-bottom: 20px; }
+    .step-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--black); margin-bottom: 10px; }
+    .step-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
+
+
+    /* ── PACKAGES ── */
+    .packages-section { padding: 140px 0; background: var(--white); }
+    .packages-header { text-align: center; margin-bottom: 80px; }
+    .packages-headline { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; color: var(--black); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 18px; }
+    .packages-headline em { font-style: italic; color: var(--gold); }
+    .packages-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.75; }
+    .packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
+    @media (max-width: 1100px) { .packages-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .packages-grid { grid-template-columns: 1fr; } }
+    .pkg-card {
+      border: 1px solid var(--border); border-radius: 3px; padding: 32px 26px;
+      position: relative; background: var(--white); opacity: 0; transform: translateY(40px);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .pkg-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.07); transform: translateY(-3px) !important; }
+    .pkg-card.featured { border-color: var(--gold); border-width: 1.5px; }
+    .pkg-card.featured::before { content: ''; position: absolute; top: -1.5px; left: 0; right: 0; height: 3px; background: var(--gold); border-radius: 3px 3px 0 0; }
+    .pkg-badge { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; margin-bottom: 14px; }
+    .pkg-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+    .pkg-price { font-family: var(--font-display); font-size: 2.6rem; font-weight: 700; color: var(--black); line-height: 1; letter-spacing: -0.025em; margin-bottom: 4px; }
+    .pkg-price span { font-size: 1.1rem; font-weight: 400; color: var(--muted); font-family: var(--font-body); }
+    .pkg-period { font-size: 0.78rem; color: var(--muted); margin-bottom: 24px; }
+    .pkg-divider { height: 1px; background: var(--border-light); margin-bottom: 20px; }
+    .pkg-features { list-style: none; margin-bottom: 28px; }
+    .pkg-features li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.855rem; color: var(--text); padding: 5px 0; line-height: 1.55; }
+    .pkg-features li::before { content: ''; width: 15px; height: 15px; min-width: 15px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Cpath fill='%23C9A84C' d='M6 10.8L2.7 7.5l1-1L6 8.8l5.3-5.3 1 1z'/%3E%3C/svg%3E") no-repeat center; margin-top: 1px; flex-shrink: 0; }
+    .pkg-count { font-size: 0.7rem; font-weight: 600; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .pkg-cta { display: block; width: 100%; text-align: center; padding: 12px 16px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: all 0.25s; font-family: var(--font-body); }
+    .pkg-cta-outline { border: 1.5px solid var(--black); color: var(--black); background: transparent; }
+    .pkg-cta-outline:hover { background: var(--black); color: var(--white); }
+    .pkg-cta-gold { background: var(--gold); color: var(--white); border: 1.5px solid var(--gold); }
+    .pkg-cta-gold:hover { background: var(--gold-hover); border-color: var(--gold-hover); }
+
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { padding: 140px 0; background: var(--white); }
+    .testi-header { text-align: center; margin-bottom: 80px; }
+    .testi-headline { font-family: var(--font-display); font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 700; color: var(--black); letter-spacing: -0.025em; line-height: 1.05; }
+    .testi-headline em { font-style: italic; color: var(--gold); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 52px; }
+    @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .testi-item { position: relative; padding-top: 28px; opacity: 0; transform: translateY(40px); }
+    .testi-mark { font-family: var(--font-display); font-size: 4.5rem; color: var(--gold); line-height: 0.5; opacity: 0.25; position: absolute; top: 0; left: -4px; }
+    .testi-stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 14px; font-size: 0.85rem; }
+    .testi-text { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--black); line-height: 1.75; margin-bottom: 22px; position: relative; z-index: 1; }
+    .testi-author { display: flex; align-items: center; gap: 13px; }
+    .testi-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
+    .testi-name { font-weight: 600; font-size: 0.875rem; color: var(--black); }
+    .testi-role { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 120px 0; background: var(--bg-soft); border-top: 1px solid var(--border-light); }
+    .faq-header { max-width: 540px; margin-bottom: 60px; }
+    .faq-headline { font-family: var(--font-display); font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 700; color: var(--black); letter-spacing: -0.025em; line-height: 1.05; }
+    .faq-headline em { font-style: italic; color: var(--gold); }
+    .faq-list { max-width: 780px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; text-align: left; padding: 22px 0; background: none; border: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; font-family: var(--font-display); font-size: 1.05rem;
+      font-weight: 600; color: var(--black); transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-icon {
+      width: 26px; height: 26px; min-width: 26px; border-radius: 50%;
+      border: 1.5px solid var(--border); display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; color: var(--muted);
+      transition: all 0.3s; flex-shrink: 0; line-height: 1;
+    }
+    .faq-item.open .faq-icon { border-color: var(--gold); color: var(--gold); transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .faq-a-inner { padding: 0 0 22px; font-size: 0.93rem; color: var(--muted); line-height: 1.85; max-width: 640px; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 160px 48px; background: var(--black); text-align: center; }
+    .cta-label { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .cta-headline { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 700; color: var(--white); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 22px; }
+    .cta-headline em { font-style: italic; color: var(--gold); }
+    .cta-sub { font-size: 1.05rem; color: rgba(255,255,255,0.55); margin: 0 auto 44px; max-width: 460px; line-height: 1.75; }
+    @media (max-width: 768px) { .cta-section { padding: 80px 24px; } }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 0 36px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.38); line-height: 1.75; max-width: 240px; margin-bottom: 22px; }
+    .footer-phone { font-size: 0.875rem; color: var(--gold); font-weight: 500; }
+    .footer-col-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; gap: 14px; }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.28); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.14); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); font-size: 0.7rem; font-weight: 600; transition: all 0.2s; }
+    .footer-social:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── REVEAL CLASSES (initial hidden state) ── */
+    .reveal { opacity: 0; transform: translateY(40px); }
+    .reveal-left { opacity: 0; transform: translateX(-55px); }
+    .reveal-right { opacity: 0; transform: translateX(55px); }
+    .step-item { opacity: 0; transform: translateY(40px); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Prime<span>Angle</span> Visuals</a>
+    <ul class="nav-links">
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Shoot</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-sticky">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-canvas-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Cinematic Real Estate Videography</span>
+      <h1 class="hero-headline">Your Listings.<br><em>Elevated.</em></h1>
+      <div class="hero-cta-group">
+        <a href="#packages" class="btn-gold">View Packages</a>
+        <a href="#why" class="btn-outline">Our Approach</a>
+      </div>
+    </div>
+    <div class="hero-scroll" id="heroScroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">PRIME ANGLE VISUALS <span class="dot">·</span> REAL ESTATE VIDEOGRAPHY <span class="dot">·</span> ELEVATE YOUR LISTINGS <span class="dot">·</span> CINEMATIC QUALITY <span class="dot">·</span></div>
+    <div class="marquee-item">PRIME ANGLE VISUALS <span class="dot">·</span> REAL ESTATE VIDEOGRAPHY <span class="dot">·</span> ELEVATE YOUR LISTINGS <span class="dot">·</span> CINEMATIC QUALITY <span class="dot">·</span></div>
+    <div class="marquee-item">PRIME ANGLE VISUALS <span class="dot">·</span> REAL ESTATE VIDEOGRAPHY <span class="dot">·</span> ELEVATE YOUR LISTINGS <span class="dot">·</span> CINEMATIC QUALITY <span class="dot">·</span></div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="why-section" id="why">
+  <div class="container">
+    <h2 class="why-headline reveal">Cinematic Content That <em>Wins Listings.</em></h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-num reveal-left">01</div>
+        <svg class="feature-icon reveal-left" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 30l8-8 6 6 8-10 10 12"/><rect x="2" y="6" width="40" height="32" rx="3"/>
+          <circle cx="33" cy="14" r="3"/>
+        </svg>
+        <h3 class="feature-title reveal-left">Visual Mastery</h3>
+        <p class="feature-desc reveal-left">From concept to final cut, we craft cinematic content that sells. Every shoot is strategically planned, directed, and edited to highlight the property's strongest angles and maximize its impact across every platform.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num reveal">02</div>
+        <svg class="feature-icon reveal" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="22" r="18"/><path d="M22 12v10l6 4"/>
+        </svg>
+        <h3 class="feature-title reveal">Same-Week Delivery</h3>
+        <p class="feature-desc reveal">Fast turnaround so your listings go live without delays. We know the market doesn't wait — neither do we. Polished, ready-to-publish content delivered within days of the shoot.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num reveal-right">03</div>
+        <svg class="feature-icon reveal-right" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="8" width="28" height="22" rx="3"/><path d="M32 15l8-4v20l-8-4"/>
+        </svg>
+        <h3 class="feature-title reveal-right">Social-Ready Formats</h3>
+        <p class="feature-desc reveal-right">Vertical reels, MLS video, and listing pages all included. Every package is built for agents who need content that performs on Instagram, TikTok, and MLS simultaneously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="how-header">
+      <div>
+        <h2 class="how-headline reveal">Four steps.<br><em>Cinematic results.</em></h2>
+      </div>
+      <p class="how-subtext reveal-right">Our streamlined process makes premium real estate videography effortless. From booking to delivery, we handle everything so you can focus on closing.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Book Your Shoot</h3>
+        <p class="step-desc">Schedule online in minutes. Choose your date, location, and package. We confirm within 24 hours.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Select Your Package</h3>
+        <p class="step-desc">Pick the tier that fits your listing — from starter photography to full cinematic production.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <h3 class="step-title">We Film & Edit</h3>
+        <p class="step-desc">Our crew arrives, shoots with precision, and our editors produce polished, publish-ready content.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">04</div>
+        <h3 class="step-title">You Close Deals</h3>
+        <p class="step-desc">Content delivered. Listings go live. Properties sell faster. Repeat monthly for consistent results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PACKAGES -->
+<section class="packages-section" id="packages">
+  <div class="container">
+    <div class="packages-header">
+      <h2 class="packages-headline reveal">Packages Built for<br><em>Serious Agents.</em></h2>
+      <p class="packages-sub reveal">Monthly subscriptions that keep your listings looking elite, all year long.</p>
+    </div>
+    <div class="packages-grid">
+
+      <!-- Starter -->
+      <div class="pkg-card">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price">$599<span>/mo</span></div>
+        <div class="pkg-period">billed monthly</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Professional MLS Photography</li>
+          <li>Drone Photography (Aerial Stills)</li>
+          <li>Signature Listing Video (Standard or Platinum Reel with drone footage)</li>
+          <li>Custom Listing Website</li>
+        </ul>
+        <div class="pkg-count">5 Services / Month</div>
+        <a href="#contact" class="pkg-cta pkg-cta-outline">Get Started</a>
+      </div>
+
+      <!-- Signature -->
+      <div class="pkg-card">
+        <div class="pkg-name">Signature</div>
+        <div class="pkg-price">$899<span>/mo</span></div>
+        <div class="pkg-period">billed monthly</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Professional MLS Photography</li>
+          <li>Drone Photography (Aerial Stills)</li>
+          <li>Twilight Photo and Video</li>
+          <li>Platinum Reel</li>
+          <li>Custom Listing Website</li>
+        </ul>
+        <div class="pkg-count">8 Services / Month</div>
+        <a href="#contact" class="pkg-cta pkg-cta-outline">Get Started</a>
+      </div>
+
+      <!-- Full Production -->
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-name">Full Production</div>
+        <div class="pkg-price">$1,249<span>/mo</span></div>
+        <div class="pkg-period">billed monthly</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Professional MLS Photography</li>
+          <li>Drone Photography (Aerial Stills)</li>
+          <li>Twilight Photo and Video</li>
+          <li>Platinum Reel</li>
+          <li>Teaser Video (Reels / TikTok / Shorts)</li>
+          <li>Custom Listing Website</li>
+        </ul>
+        <div class="pkg-count">10 Services / Month</div>
+        <a href="#contact" class="pkg-cta pkg-cta-gold">Get Started</a>
+      </div>
+
+      <!-- Custom -->
+      <div class="pkg-card">
+        <div class="pkg-name">Custom</div>
+        <div class="pkg-price" style="font-size:1.9rem;letter-spacing:-0.01em">Let's Talk</div>
+        <div class="pkg-period">flexible pricing</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Fully bespoke package</li>
+          <li>Mix-and-match all services</li>
+          <li>Dedicated account manager</li>
+          <li>Priority scheduling</li>
+        </ul>
+        <div class="pkg-count">Unlimited Flexibility</div>
+        <a href="#contact" class="pkg-cta pkg-cta-outline">Contact Us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <h2 class="faq-headline reveal">Common <em>Questions.</em></h2>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q">What's included in each package? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Each package includes a curated set of services. Starter covers MLS photography, drone stills, a listing video, and a custom listing website. Signature and Full Production add twilight shoots, platinum reels, and social-ready teaser videos. All packages include full content rights and same-week delivery.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How quickly do I receive my content? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Standard turnaround is 48–72 hours after the shoot. Full Production and out-of-state packages range from 3–5 business days depending on scope. Priority delivery is available on the Custom and Package 03 out-of-state tiers.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Do you shoot outside the local area? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — we're available for productions anywhere in the country. If you're looking for coverage outside our primary market, simply select the Custom package and reach out directly. We'll coordinate all logistics and tailor a solution that fits your specific needs and location.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What format are deliverables? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">You receive high-resolution edited video files (MP4, web and MLS optimized), edited photos (high-res JPEG), and vertical reels formatted for Instagram, TikTok, and YouTube Shorts. Custom listing websites are delivered as live, shareable URLs.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How do I book a shoot? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Click "Book a Shoot" at the top of this page. We'll confirm your preferred date within 24 hours, collect property details, and get you scheduled. Shoots are typically available within 3–5 business days of booking.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Can I customize my package? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. The Custom package lets you mix and match any of our services — photography, drone, video, listing websites, and more. Contact us and we'll build a package that fits exactly what you need.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <span class="cta-label reveal">Ready When You Are</span>
+  <h2 class="cta-headline reveal">Ready to Elevate<br>Your <em>Listings?</em></h2>
+  <p class="cta-sub reveal">Join agents closing deals faster with cinematic content that commands attention from the very first frame.</p>
+  <div class="reveal">
+    <a href="mailto:hello@primeanglevisuals.com" class="btn-gold">Book a Shoot</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Prime<span>Angle</span> Visuals</div>
+        <p class="footer-tagline">Cinematic real estate videography that wins listings and commands premium prices.</p>
+        <div class="footer-phone">(330) 770-1915</div>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links">
+          <li><a href="#packages">Monthly Packages</a></li>
+          <li><a href="#why">Drone Videography</a></li>
+          <li><a href="#why">Photography</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Company</div>
+        <ul class="footer-links">
+          <li><a href="#why">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Follow Us</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/primeanglevisuals/" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Prime Angle Visuals. All rights reserved.</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/primeanglevisuals/" target="_blank" class="footer-social">IG</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Lenis smooth scroll
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true
+  });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(time => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  // ── Nav scroll state
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ── Hero entrance
+  gsap.timeline({ delay: 0.2 })
+    .to('.hero-eyebrow',    { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+    .to('.hero-headline',   { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, '-=0.45')
+    .to('.hero-cta-group',  { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
+    .to('#heroScroll',      { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
+
+  // ── Generic scroll reveals
+  document.querySelectorAll('.reveal').forEach(el => {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 87%', toggleActions: 'play none none none' }
+    });
+  });
+
+  document.querySelectorAll('.reveal-left').forEach(el => {
+    gsap.to(el, {
+      opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 87%', toggleActions: 'play none none none' }
+    });
+  });
+
+  document.querySelectorAll('.reveal-right').forEach(el => {
+    gsap.to(el, {
+      opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 87%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // ── Steps stagger
+  gsap.to('.step-item', {
+    opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.steps-grid', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+
+  // ── Package cards stagger
+  gsap.to('.pkg-card', {
+    opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.packages-grid', start: 'top 78%', toggleActions: 'play none none none' }
+  });
+
+
+
+  // ── FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        const inner = item.querySelector('.faq-a-inner');
+        item.querySelector('.faq-a').style.maxHeight = inner.offsetHeight + 'px';
+      }
+    });
+  });
+
+  // ── Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80, duration: 1.4 }); }
+    });
+  });
+
+  // ── Hero scroll-driven canvas (frame-by-frame)
+  const FRAME_COUNT = 151;
+  const heroCanvas = document.getElementById('heroCanvas');
+  const ctx = heroCanvas.getContext('2d');
+  const frames = new Array(FRAME_COUNT);
+  let currentHeroFrame = 0;
+  let framesReady = 0;
+
+  function resizeHeroCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    const isMobile = window.innerWidth <= 768;
+    const w = isMobile ? window.innerWidth : Math.round(window.innerWidth * 0.68);
+    const h = window.innerHeight;
+    heroCanvas.width = w * dpr;
+    heroCanvas.height = h * dpr;
+    heroCanvas.style.width = w + 'px';
+    heroCanvas.style.height = h + 'px';
+    drawHeroFrame(currentHeroFrame);
+  }
+
+  function drawHeroFrame(index) {
+    const img = frames[index];
+    if (!img || !img.complete || !img.naturalWidth) return;
+    const cw = heroCanvas.width, ch = heroCanvas.height;
+    const iw = img.naturalWidth, ih = img.naturalHeight;
+    const scale = Math.max(cw / iw, ch / ih) * 0.88;
+    const dw = iw * scale, dh = ih * scale;
+    const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }
+
+  // Load first frame immediately for fast first paint
+  const firstFrame = new Image();
+  firstFrame.onload = () => { frames[0] = firstFrame; resizeHeroCanvas(); };
+  firstFrame.src = 'frames/frame_0001.webp';
+
+  // Load remaining frames in background
+  for (let i = 2; i <= FRAME_COUNT; i++) {
+    const img = new Image();
+    const idx = i - 1;
+    img.onload = () => { frames[idx] = img; framesReady++; };
+    img.src = 'frames/frame_' + String(i).padStart(4, '0') + '.webp';
+  }
+
+  window.addEventListener('resize', resizeHeroCanvas);
+  resizeHeroCanvas();
+
+  // ScrollTrigger: pin hero and scrub frames
+  const isMobile = window.innerWidth <= 768;
+  ScrollTrigger.create({
+    trigger: '.hero-sticky',
+    pin: true,
+    pinSpacing: true,
+    start: 'top top',
+    end: isMobile ? '+=100%' : '+=200%',
+    scrub: true,
+    onUpdate: (self) => {
+      const index = Math.min(Math.floor(self.progress * FRAME_COUNT), FRAME_COUNT - 1);
+      if (index !== currentHeroFrame) {
+        currentHeroFrame = index;
+        requestAnimationFrame(() => drawHeroFrame(currentHeroFrame));
+      }
+    }
+  });
+</script>
+</body>
+</html>
