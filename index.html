@@ -723,7 +723,7 @@
       <div class="form-group full">
         <button type="submit" class="form-submit">Request Booking</button>
       </div>
-      <div class="form-success" id="formSuccess">Your booking request has been sent! We'll confirm within 24 hours.</div>
+      <div class="form-success" id="formSuccess">Your request has been sent! We'll reach out within 24 hours to discuss your custom package.</div>
     </form>
   </div>
 </section>
@@ -888,9 +888,20 @@
       try {
         const res = await fetch(bookingForm.action, { method: 'POST', body: new FormData(bookingForm), headers: { Accept: 'application/json' } });
         if (res.ok) {
+          const stripeLinks = {
+            'Starter': 'https://buy.stripe.com/aFabJ2bjwai97jEfoM5J600',
+            'Signature': 'https://buy.stripe.com/8x23cwgDQfCtgUe5Oc5J601',
+            'Full Production': 'https://buy.stripe.com/28E00k4V8ai9fQa90o5J602'
+          };
+          const selected = document.getElementById('package').value;
+          const link = stripeLinks[selected];
           bookingForm.reset();
-          document.getElementById('formSuccess').style.display = 'block';
-          btn.style.display = 'none';
+          if (link) {
+            window.location.href = link;
+          } else {
+            document.getElementById('formSuccess').style.display = 'block';
+            btn.style.display = 'none';
+          }
         } else { btn.textContent = 'Error — try again'; btn.disabled = false; }
       } catch { btn.textContent = 'Error — try again'; btn.disabled = false; }
     });
