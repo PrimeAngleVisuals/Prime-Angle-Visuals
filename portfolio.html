@@ -152,13 +152,15 @@
     .logo-item {
       flex-shrink: 0; height: 72px; width: auto; max-width: 200px;
       object-fit: contain;
-      filter: drop-shadow(0 0 12px rgba(201,168,76,0.55));
-      opacity: 0.88;
+      filter: drop-shadow(0 0 14px rgba(201,168,76,0.85));
+      -webkit-mask-image: radial-gradient(ellipse 78% 70% at 50% 50%, black 40%, transparent 100%);
+      mask-image: radial-gradient(ellipse 78% 70% at 50% 50%, black 40%, transparent 100%);
+      opacity: 0.92;
       transition: opacity 0.25s, filter 0.25s;
     }
     .logo-item:hover {
       opacity: 1;
-      filter: drop-shadow(0 0 20px rgba(201,168,76,0.95));
+      filter: drop-shadow(0 0 22px rgba(201,168,76,1)) drop-shadow(0 0 8px rgba(201,168,76,0.8));
     }
 
     /* ── SECTION SHARED ── */
