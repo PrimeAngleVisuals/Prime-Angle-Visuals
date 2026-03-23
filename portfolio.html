@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Stefan De Silmir | EIF Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-hover: #b8922e;
+      --black: #0D0D0D;
+      --black-soft: #141414;
+      --black-card: #1a1a1a;
+      --border: rgba(201,168,76,0.18);
+      --muted: #888;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+      --nav-h: 72px;
+    }
+
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { background: var(--black); color: #e8e8e8; font-family: var(--font-body); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img, video, iframe { display: block; max-width: 100%; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 52px; }
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+      z-index: 1000; display: flex; align-items: center;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.2; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-back {
+      background: var(--gold); color: var(--black); padding: 9px 20px;
+      border-radius: 2px; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-back:hover { background: var(--gold-hover); color: var(--black); }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: var(--nav-h);
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 8rem);
+      font-weight: 900; line-height: 0.92;
+      color: #fff; letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .hero-headline em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 1rem; color: var(--muted); line-height: 1.7;
+      max-width: 560px; margin: 0 auto 52px;
+    }
+    .reel-wrap {
+      position: relative; width: 100%; max-width: 960px;
+      aspect-ratio: 16/9; border-radius: 4px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 80px rgba(201,168,76,0.12), 0 40px 120px rgba(0,0,0,0.8);
+      margin: 0 auto;
+    }
+    .reel-wrap iframe { width: 100%; height: 100%; border: none; }
+
+    /* ── STATS ── */
+    .stats-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; text-align: center;
+    }
+    @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
+    .stat-item { padding: 0 32px; border-right: 1px solid var(--border); }
+    .stat-item:last-child { border-right: none; }
+    @media (max-width: 768px) { .stat-item { border-right: none; } }
+    .stat-num {
+      font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 10px;
+    }
+    .stat-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── SECTION SHARED ── */
+    .section-label {
+      display: block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .section-headline {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700; color: #fff; line-height: 1.05;
+      letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .section-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 520px; }
+
+    /* ── CLIENT WORK ── */
+    .work-section { padding: 120px 0; }
+    .work-header { margin-bottom: 72px; }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr; } }
+
+    .work-card {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .work-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .work-card.featured { grid-column: span 2; }
+    @media (max-width: 900px) { .work-card.featured { grid-column: span 1; } }
+
+    .card-video { aspect-ratio: 16/9; width: 100%; }
+    .card-video iframe { width: 100%; height: 100%; border: none; }
+    .card-body { padding: 24px 28px; }
+    .card-client {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+    }
+    .card-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .card-tag {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--black);
+      background: var(--gold); padding: 4px 10px; border-radius: 2px;
+    }
+
+    /* ── WEDDINGS ── */
+    .weddings-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+      background: var(--black-soft);
+    }
+    .weddings-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    @media (max-width: 900px) { .weddings-inner { grid-template-columns: 1fr; gap: 48px; } }
+    .weddings-video { aspect-ratio: 16/9; border-radius: 4px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+    .weddings-video iframe { width: 100%; height: 100%; border: none; }
+    .weddings-text { }
+    .weddings-num { font-family: var(--font-display); font-size: clamp(4rem, 8vw, 7rem); font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .weddings-num-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; }
+    .weddings-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 32px; }
+    .btn-gold {
+      display: inline-block; background: var(--gold); color: var(--black);
+      padding: 14px 32px; border-radius: 2px; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-hover); }
+    .btn-outline {
+      display: inline-block; border: 1.5px solid rgba(201,168,76,0.4); color: var(--gold);
+      padding: 13px 28px; border-radius: 2px; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; margin-left: 14px;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+    /* ── MORE WORK ── */
+    .more-section { padding: 100px 0; border-top: 1px solid var(--border); text-align: center; }
+    .more-section .section-sub { margin: 0 auto 40px; }
+    .channel-cards { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+    .channel-card {
+      background: var(--black-card); border: 1px solid var(--border); border-radius: 4px;
+      padding: 28px 36px; text-align: center; transition: border-color 0.25s, transform 0.25s;
+      min-width: 220px;
+    }
+    .channel-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .channel-icon { font-size: 2rem; margin-bottom: 12px; }
+    .channel-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .channel-desc { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── CTA / CONTACT ── */
+    .cta-section {
+      padding: 140px 52px;
+      text-align: center;
+      background: var(--black-soft);
+      border-top: 1px solid var(--border);
+    }
+    .cta-headline {
+      font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 900; color: #fff; line-height: 1; letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .cta-headline em { font-style: italic; color: var(--gold); }
+    .cta-sub { font-size: 1rem; color: var(--muted); margin-bottom: 44px; }
+    .cta-btn {
+      display: inline-block; background: var(--gold); color: var(--black);
+      padding: 18px 48px; border-radius: 2px; font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--gold-hover); }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 40px 0; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .footer-text { font-size: 0.78rem; color: var(--muted); }
+    .footer-text a { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Prime<span>Angle</span> Visuals</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#weddings">Weddings</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="index.html" class="nav-back">← Back to Main Site</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">EIF Media · Est. 2013 · 500+ Projects</span>
+    <h1 class="hero-headline">The<br><em>Work.</em></h1>
+    <p class="hero-sub">A decade of cinematic storytelling — from Fortune 500 brands and live multi-camera events to 250+ weddings across the country.</p>
+    <div class="reel-wrap">
+      <iframe src="https://www.youtube.com/embed/OvbdneOxLDM?autoplay=0&rel=0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">250+</div>
+        <div class="stat-label">Weddings Filmed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Stories Told</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT WORK -->
+<section class="work-section" id="work">
+  <div class="container">
+    <div class="work-header">
+      <span class="section-label">Commercial & Corporate</span>
+      <h2 class="section-headline">Client Work.</h2>
+      <p class="section-sub">Brand films, live events, product campaigns, and keynote coverage for some of the most recognized names in their industries.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- Welch's - featured -->
+      <div class="work-card featured">
+        <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/O4jKxlPK080?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <div class="card-client">Welch's</div>
+          <div class="card-title">Brand Campaign</div>
+          <div class="card-desc">Full-scale brand video production for one of America's most iconic food and beverage brands.</div>
+          <span class="card-tag">Commercial</span>
+        </div>
+      </div>
+
+      <!-- Humanetics -->
+      <div class="work-card">
+        <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/3FC2CKJCVlA?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <div class="card-client">Humanetics</div>
+          <div class="card-title">Corporate Production</div>
+          <div class="card-desc">Corporate video production for a global leader in human safety testing and simulation.</div>
+          <span class="card-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Adaptive Corp - Live Event -->
+      <div class="work-card">
+        <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/cBGjMouVIto?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <div class="card-client">Adaptive Corp</div>
+          <div class="card-title">Live Multi-Camera Event</div>
+          <div class="card-desc">Full live multi-camera production for a corporate event — real-time switching, color grading, and delivery.</div>
+          <span class="card-tag">Live Event</span>
+        </div>
+      </div>
+
+      <!-- E1 DigitalDirect -->
+      <div class="work-card">
+        <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/p_IacKEPryY?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <div class="card-client">E1 DigitalDirect</div>
+          <div class="card-title">Product Campaign</div>
+          <div class="card-desc">Cinematic product videography crafted for digital-first distribution and social campaigns.</div>
+          <span class="card-tag">Commercial</span>
+        </div>
+      </div>
+
+      <!-- E1 DigitalDirect 2 -->
+      <div class="work-card">
+        <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/Cy7eGPSn-NA?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <div class="card-client">E1 DigitalDirect</div>
+          <div class="card-title">Campaign — Vol. 2</div>
+          <div class="card-desc">A second campaign collaboration — extended visual storytelling for their product line.</div>
+          <span class="card-tag">Commercial</span>
+        </div>
+      </div>
+
+      <!-- Keynote -->
+      <div class="work-card">
+        <div class="card-video">
+          <iframe src="https://www.youtube.com/embed/1mYXYvasjrY?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <div class="card-client">Keynote Coverage</div>
+          <div class="card-title">Live Keynote Production</div>
+          <div class="card-desc">Professional keynote and conference coverage — multi-angle capture, clean audio, and same-week delivery.</div>
+          <span class="card-tag">Live Event</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WEDDINGS -->
+<section class="weddings-section" id="weddings">
+  <div class="container">
+    <div class="weddings-inner">
+      <div class="weddings-video">
+        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=PrimeAngleStudio&rel=0" allowfullscreen></iframe>
+      </div>
+      <div class="weddings-text">
+        <span class="section-label">Wedding Films</span>
+        <div class="weddings-num">250+</div>
+        <div class="weddings-num-label">Weddings Filmed</div>
+        <p class="weddings-desc">Every wedding is a one-take film. No do-overs, no second chances — just pure cinematic storytelling of one of the most important days of your life. From intimate elopements to grand ballroom productions, we've filmed them all.</p>
+        <a href="https://www.youtube.com/@PrimeAngleStudio" target="_blank" class="btn-gold">View Wedding Films</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE WORK -->
+<section class="more-section" id="more">
+  <div class="container">
+    <span class="section-label">See More</span>
+    <h2 class="section-headline">More on YouTube.</h2>
+    <p class="section-sub">500+ projects across commercial, corporate, live events, and weddings — browse the full catalog on YouTube.</p>
+    <div class="channel-cards">
+      <a href="https://www.youtube.com/@PrimeAngleStudio" target="_blank" class="channel-card">
+        <div class="channel-icon">▶</div>
+        <div class="channel-name">Prime Angle Studio</div>
+        <div class="channel-desc">Commercial, corporate & events</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="cta-section" id="contact">
+  <h2 class="cta-headline">Let's Make<br><em>Something.</em></h2>
+  <p class="cta-sub">Ready to bring your vision to life? Let's talk.</p>
+  <a href="mailto:Hello@Primeanglevisuals.com" class="cta-btn">Get in Touch</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer-text">© 2026 EIF Media · <a href="index.html">Prime Angle Visuals</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
