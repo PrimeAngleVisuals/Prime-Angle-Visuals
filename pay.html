@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Angle Visuals — Secure Payment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C9A84C;
+      --gold-hover: #b8922e;
+      --black: #0D0D0D;
+      --black-soft: #141414;
+      --black-card: #1a1a1a;
+      --border: rgba(201,168,76,0.18);
+      --muted: #888;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    html { -webkit-font-smoothing: antialiased; }
+    body { background: var(--black); color: #e8e8e8; font-family: var(--font-body); min-height: 100vh; display: flex; flex-direction: column; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px; border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: #fff; }
+    .nav-logo span { color: var(--gold); }
+    .nav-secure { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .nav-secure::before { content: '🔒'; font-size: 0.9rem; }
+    @media (max-width: 600px) { .nav { padding: 16px 20px; } }
+
+    /* HERO */
+    .hero { text-align: center; padding: 72px 24px 48px; }
+    .hero-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hero-headline { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .hero-headline em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 0.95rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+    /* PACKAGES */
+    .packages { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 768px) { .packages { grid-template-columns: 1fr; } }
+
+    .pkg {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 36px 28px; display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+    .pkg:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .pkg.featured { border-color: var(--gold); }
+    .pkg-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--black); font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px;
+      white-space: nowrap;
+    }
+    .pkg-name { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .pkg-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .pkg-price { font-family: var(--font-display); font-size: 2.4rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 4px; }
+    .pkg-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .pkg-billing { font-size: 0.75rem; color: var(--muted); margin-bottom: 28px; }
+    .pkg-features { list-style: none; margin-bottom: 32px; flex: 1; }
+    .pkg-features li { font-size: 0.85rem; color: #ccc; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+    .pkg-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pkg-btn {
+      display: block; text-align: center;
+      padding: 14px; border-radius: 4px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pkg-btn-gold { background: var(--gold); color: var(--black); }
+    .pkg-btn-gold:hover { background: var(--gold-hover); }
+    .pkg-btn-outline { border: 1.5px solid rgba(201,168,76,0.4); color: var(--gold); }
+    .pkg-btn-outline:hover { background: var(--gold); color: var(--black); }
+
+    /* FOOTER */
+    .footer {
+      margin-top: auto; padding: 28px 48px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 0.75rem; color: var(--muted); }
+    .footer-contact { font-size: 0.75rem; color: var(--muted); }
+    .footer-contact a { color: var(--gold); }
+    @media (max-width: 600px) { .footer { padding: 24px 20px; text-align: center; justify-content: center; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">Prime<span>Angle</span> Visuals</div>
+  <div class="nav-secure">Secure Payment</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-label">Your Booking is Confirmed</p>
+  <h1 class="hero-headline">Select Your <em>Package</em></h1>
+  <p class="hero-sub">Choose the package below to complete your booking. You'll be billed monthly starting today and can cancel anytime.</p>
+</div>
+
+<!-- PACKAGES -->
+<div class="packages">
+
+  <!-- Starter -->
+  <div class="pkg">
+    <p class="pkg-name">Package 01</p>
+    <h2 class="pkg-title">Starter</h2>
+    <div class="pkg-price">$599<span>/mo</span></div>
+    <div class="pkg-billing">/ month · billed monthly</div>
+    <ul class="pkg-features">
+      <li>Professional MLS Photography</li>
+      <li>Drone Photography (Aerial Stills)</li>
+      <li>Signature Listing Video</li>
+      <li>Custom Listing Website</li>
+      <li>5 Services / Month</li>
+    </ul>
+    <a href="https://buy.stripe.com/aFabJ2bjwai97jEfoM5J600" class="pkg-btn pkg-btn-outline">Pay Now →</a>
+  </div>
+
+  <!-- Signature -->
+  <div class="pkg featured">
+    <div class="pkg-badge">Most Popular</div>
+    <p class="pkg-name">Package 02</p>
+    <h2 class="pkg-title">Signature</h2>
+    <div class="pkg-price">$899<span>/mo</span></div>
+    <div class="pkg-billing">/ month · billed monthly</div>
+    <ul class="pkg-features">
+      <li>Professional MLS Photography</li>
+      <li>Drone Photography (Aerial Stills)</li>
+      <li>Twilight Photo and Video</li>
+      <li>Platinum Reel with drone footage</li>
+      <li>Custom Listing Website</li>
+      <li>8 Services / Month</li>
+    </ul>
+    <a href="https://buy.stripe.com/8x23cwgDQfCtgUe5Oc5J601" class="pkg-btn pkg-btn-gold">Pay Now →</a>
+  </div>
+
+  <!-- Full Production -->
+  <div class="pkg">
+    <p class="pkg-name">Package 03</p>
+    <h2 class="pkg-title">Full Production</h2>
+    <div class="pkg-price">$1,249<span>/mo</span></div>
+    <div class="pkg-billing">/ month · billed monthly</div>
+    <ul class="pkg-features">
+      <li>Everything in Signature</li>
+      <li>Social Teaser Video</li>
+      <li>Platinum Reel</li>
+      <li>Priority Editing & Delivery</li>
+      <li>Dedicated Account Support</li>
+      <li>Unlimited Services / Month</li>
+    </ul>
+    <a href="https://buy.stripe.com/28E00k4V8ai9fQa90o5J602" class="pkg-btn pkg-btn-outline">Pay Now →</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-copy">© 2026 Prime Angle Visuals. All rights reserved.</div>
+  <div class="footer-contact">Questions? <a href="mailto:Hello@PrimeAngleVisuals.com">Hello@PrimeAngleVisuals.com</a></div>
+</footer>
+
+</body>
+</html>
