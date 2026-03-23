@@ -86,11 +86,12 @@
       max-width: 560px; margin: 0 auto 52px;
     }
     .reel-wrap {
-      position: relative; width: 100%; max-width: 960px;
-      aspect-ratio: 16/9; border-radius: 4px; overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 80px rgba(201,168,76,0.12), 0 40px 120px rgba(0,0,0,0.8);
-      margin: 0 auto;
+      position: relative; width: 100vw; left: 50%; right: 50%;
+      margin-left: -50vw; margin-right: -50vw;
+      aspect-ratio: 16/9; overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 0 120px rgba(201,168,76,0.15), 0 60px 160px rgba(0,0,0,0.9);
     }
     .reel-wrap iframe { width: 100%; height: 100%; border: none; }
 
