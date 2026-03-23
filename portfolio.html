@@ -150,18 +150,15 @@
     .logos-track:hover { animation-play-state: paused; }
     @keyframes logoScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .logo-item {
-      flex-shrink: 0; height: 48px; width: auto; max-width: 160px;
+      flex-shrink: 0; height: 72px; width: auto; max-width: 200px;
       object-fit: contain;
-      background: #fff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      box-shadow: 0 0 0 1px rgba(201,168,76,0.15), 0 4px 20px rgba(0,0,0,0.4);
-      opacity: 0.85;
-      transition: opacity 0.25s, box-shadow 0.25s;
+      filter: drop-shadow(0 0 12px rgba(201,168,76,0.55));
+      opacity: 0.88;
+      transition: opacity 0.25s, filter 0.25s;
     }
     .logo-item:hover {
       opacity: 1;
-      box-shadow: 0 0 0 1.5px rgba(201,168,76,0.7), 0 4px 24px rgba(201,168,76,0.25);
+      filter: drop-shadow(0 0 20px rgba(201,168,76,0.95));
     }
 
     /* ── SECTION SHARED ── */
