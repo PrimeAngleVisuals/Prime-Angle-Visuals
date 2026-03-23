@@ -888,9 +888,7 @@
       try {
         const res = await fetch(bookingForm.action, { method: 'POST', body: new FormData(bookingForm), headers: { Accept: 'application/json' } });
         if (res.ok) {
-          bookingForm.reset();
-          document.getElementById('formSuccess').style.display = 'block';
-          btn.style.display = 'none';
+          window.location.href = 'thankyou.html';
         } else { btn.textContent = 'Error — try again'; btn.disabled = false; }
       } catch { btn.textContent = 'Error — try again'; btn.disabled = false; }
     });
