@@ -62,6 +62,20 @@
     .nav-back:hover { background: var(--gold-hover); color: var(--black); }
     @media (max-width: 768px) { .nav-links { display: none; } }
 
+    /* ── HERO MOBILE NAV ── */
+    .hero-mobile-nav {
+      display: none;
+      justify-content: center; gap: 28px;
+      margin-bottom: 28px;
+    }
+    .hero-mobile-nav a {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
+      transition: color 0.2s;
+    }
+    .hero-mobile-nav a:hover { color: var(--gold); }
+    @media (max-width: 768px) { .hero-mobile-nav { display: flex; } }
+
     /* ── HERO ── */
     .hero {
       padding-top: var(--nav-h);
@@ -327,6 +341,11 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
+    <nav class="hero-mobile-nav">
+      <a href="#work">Work</a>
+      <a href="#weddings">Weddings</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <span class="hero-eyebrow">500+ Projects · Trusted by Brands That Know the Difference</span>
     <h1 class="hero-headline">Every Frame<br>Tells a <em>Story.</em></h1>
     <p class="hero-sub">Cinematic video production for brands, real estate, and milestone moments. Trusted by Fortune 500 companies, live event organizers, and couples who know quality when they see it.</p>
