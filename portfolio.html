@@ -74,7 +74,10 @@
       transition: color 0.2s;
     }
     .hero-mobile-nav a:hover { color: var(--gold); }
-    @media (max-width: 768px) { .hero-mobile-nav { display: flex; } }
+    @media (max-width: 768px) {
+      .hero-mobile-nav { display: flex; }
+      .hero { padding-top: calc(var(--nav-h) + 16px); }
+    }
 
     /* ── HERO ── */
     .hero {
