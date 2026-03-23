@@ -123,6 +123,44 @@
     }
     .stat-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
 
+    /* ── CLIENT LOGOS MARQUEE ── */
+    .logos-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .logos-label {
+      text-align: center;
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 36px;
+    }
+    .logos-track-wrap { overflow: hidden; position: relative; }
+    .logos-track-wrap::before,
+    .logos-track-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+    }
+    .logos-track-wrap::before { left: 0; background: linear-gradient(to right, var(--black), transparent); }
+    .logos-track-wrap::after  { right: 0; background: linear-gradient(to left, var(--black), transparent); }
+    .logos-track {
+      display: flex; align-items: center; gap: 72px;
+      width: max-content;
+      animation: logoScroll 28s linear infinite;
+    }
+    .logos-track:hover { animation-play-state: paused; }
+    @keyframes logoScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .logo-item {
+      flex-shrink: 0; height: 48px; width: auto;
+      filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(201,168,76,0.45));
+      opacity: 0.85;
+      transition: opacity 0.25s, filter 0.25s;
+      object-fit: contain;
+    }
+    .logo-item:hover {
+      opacity: 1;
+      filter: brightness(0) invert(1) drop-shadow(0 0 16px rgba(201,168,76,0.9));
+    }
+
     /* ── SECTION SHARED ── */
     .section-label {
       display: block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.26em;
@@ -306,6 +344,35 @@
         <div class="stat-num">∞</div>
         <div class="stat-label">Stories Told</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section class="logos-section">
+  <p class="logos-label">Trusted By</p>
+  <div class="logos-track-wrap">
+    <div class="logos-track">
+      <!-- set 1 -->
+      <img class="logo-item" src="Client logos/welchs logo.png" alt="Welch's">
+      <img class="logo-item" src="Client logos/humanetics-logo.png" alt="Humanetics">
+      <img class="logo-item" src="Client logos/hornblower_logo.png" alt="Hornblower Cruises & Events">
+      <img class="logo-item" src="Client logos/Adaptive corp.png" alt="Adaptive Corporation">
+      <img class="logo-item" src="Client logos/Inspector flow.png" alt="Inspector Flow">
+      <img class="logo-item" src="Client logos/Luva bella.png" alt="Luva Bella Winery">
+      <img class="logo-item" src="Client logos/Reds-logo.png" alt="Red's">
+      <img class="logo-item" src="Client logos/spire-logo.png" alt="Spire">
+      <img class="logo-item" src="Client logos/ymca.png" alt="YMCA">
+      <!-- set 2 (duplicate for seamless loop) -->
+      <img class="logo-item" src="Client logos/welchs logo.png" alt="Welch's">
+      <img class="logo-item" src="Client logos/humanetics-logo.png" alt="Humanetics">
+      <img class="logo-item" src="Client logos/hornblower_logo.png" alt="Hornblower Cruises & Events">
+      <img class="logo-item" src="Client logos/Adaptive corp.png" alt="Adaptive Corporation">
+      <img class="logo-item" src="Client logos/Inspector flow.png" alt="Inspector Flow">
+      <img class="logo-item" src="Client logos/Luva bella.png" alt="Luva Bella Winery">
+      <img class="logo-item" src="Client logos/Reds-logo.png" alt="Red's">
+      <img class="logo-item" src="Client logos/spire-logo.png" alt="Spire">
+      <img class="logo-item" src="Client logos/ymca.png" alt="YMCA">
     </div>
   </div>
 </section>
