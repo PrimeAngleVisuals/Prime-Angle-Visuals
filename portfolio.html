@@ -187,6 +187,25 @@
     }
     .btn-outline:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
 
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { padding: 120px 0; border-top: 1px solid var(--border); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 60px; }
+    @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 4px; padding: 36px; position: relative;
+      transition: border-color 0.3s;
+    }
+    .testimonial-card:hover { border-color: var(--gold); }
+    .testimonial-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 20px; }
+    .testimonial-subject {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .testimonial-body { font-size: 0.92rem; color: #ccc; line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .testimonial-author { font-size: 0.82rem; font-weight: 600; color: #fff; letter-spacing: 0.04em; }
+    .testimonial-source { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+
     /* ── MORE WORK ── */
     .more-section { padding: 100px 0; border-top: 1px solid var(--border); text-align: center; }
     .more-section .section-sub { margin: 0 auto 40px; }
@@ -390,6 +409,50 @@
         <p class="weddings-desc">Every wedding is a one-take film. No do-overs, no second chances — just pure cinematic storytelling of one of the most important days of your life. From intimate elopements to grand ballroom productions, we've filmed them all.</p>
         <a href="https://www.youtube.com/watch?v=is0ozv68O0w&list=PLTFIdfljh9kY7rpKFdNIi5FEjUuw4Wlmu" target="_blank" class="btn-gold">View Wedding Films</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <span class="section-label">Client Reviews</span>
+    <h2 class="section-headline">What Clients Say.</h2>
+    <p class="section-sub">15 five-star reviews and counting — from couples who trusted us with the most important day of their lives.</p>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-subject">Awesome Job!</div>
+        <p class="testimonial-body">"Ilmir and his team were amazing! My husband and I had to reschedule our May wedding due to Covid and got married in July, so there was a lot of changing plans and emails, but Ilmir was always super quick to respond and rolled with every changed plan. On the day, they were super funny and nice, and they did a great job! Everyone loved our wedding photos and video; I will never hire another photographer!!"</p>
+        <div class="testimonial-author">Heaven</div>
+        <div class="testimonial-source">WeddingWire Review</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-subject">Super Flexible Along with Excellent Quality</div>
+        <p class="testimonial-body">"Ilmir's wedding business was great and provided us with hours of raw footage along with an emotional 15 min video that my wife and I loved. But if that wasn't enough, we had a lot of technical difficulties with Google Drive and even a year and a half later they were still able to provide us with the backup footage which was a lifesaver!! Thank you Ilmir and his crew."</p>
+        <div class="testimonial-author">Courtney</div>
+        <div class="testimonial-source">WeddingWire Review</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-subject">Engagement and Wedding Videography</div>
+        <p class="testimonial-body">"Ilmir and his team were great!!! I cannot recommend them enough for whatever event you are having. The highlight and full feature turned out beautiful and stunning and at a great price too!!! He was very responsive and gave us more than what we asked for in the time and was so quick in editing afterwards. We really appreciate his efforts and his hard work in providing us with them so we can remember for a lifetime."</p>
+        <div class="testimonial-author">Elizabeth</div>
+        <div class="testimonial-source">WeddingWire Review</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-subject">Fantastic Highlight Reel!</div>
+        <p class="testimonial-body">"Ilmir and the team were so great to work with! This service was a gift from my mom, and they worked so well with her to plan this special video! Ilmir and his partner were so sweet and fun the day of the wedding and the video turned out FANTASTIC! Thanks again for helping to make our day so special."</p>
+        <div class="testimonial-author">Julie</div>
+        <div class="testimonial-source">WeddingWire Review</div>
+      </div>
+
     </div>
   </div>
 </section>
