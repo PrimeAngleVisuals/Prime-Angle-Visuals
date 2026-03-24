@@ -271,6 +271,15 @@
     }
 
     /* ── WHY SECTION ── */
+    /* ── VIDEO STATS STRIP ── */
+    .stats-strip { background: var(--black); padding: 52px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+    .stats-strip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .stats-strip-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.08); }
+    .stats-strip-item:last-child { border-right: none; }
+    .stats-strip-num { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 700; color: var(--gold); line-height: 1; letter-spacing: -0.02em; }
+    .stats-strip-label { font-size: 0.82rem; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 10px; line-height: 1.5; max-width: 180px; }
+    @media (max-width: 768px) { .stats-strip-grid { grid-template-columns: 1fr; gap: 36px; } .stats-strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 36px; } .stats-strip-item:last-child { border-bottom: none; padding-bottom: 0; } }
+
     .why-section { padding: 130px 0; background: var(--white); }
     .why-headline {
       font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -470,7 +479,7 @@
 <!-- HERO -->
 <div class="announcement-bar">
   <div class="announcement-dot"></div>
-  <p class="announcement-text">Currently booking for <span>April 2026</span> — Limited spots available</p>
+  <p class="announcement-text">Currently booking for <span>March 2026</span> — Limited spots available</p>
   <a href="#booking" class="announcement-cta">Reserve Yours</a>
 </div>
 
@@ -502,6 +511,26 @@
     <div class="marquee-item">PRIME ANGLE VISUALS <span class="dot">·</span> REAL ESTATE VIDEOGRAPHY <span class="dot">·</span> ELEVATE YOUR LISTINGS <span class="dot">·</span> CINEMATIC QUALITY <span class="dot">·</span></div>
   </div>
 </div>
+
+<!-- VIDEO STATS STRIP -->
+<section class="stats-strip">
+  <div class="container">
+    <div class="stats-strip-grid">
+      <div class="stats-strip-item">
+        <div class="stats-strip-num">403%</div>
+        <div class="stats-strip-label">More inquiries for listings with video vs. photos alone</div>
+      </div>
+      <div class="stats-strip-item">
+        <div class="stats-strip-num">73%</div>
+        <div class="stats-strip-label">Of sellers prefer to list with agents who use video marketing</div>
+      </div>
+      <div class="stats-strip-item">
+        <div class="stats-strip-num">2x</div>
+        <div class="stats-strip-label">Faster sale time for properties with professional video content</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- WHY -->
 <section class="why-section" id="why">
