@@ -42,6 +42,40 @@
     .container { max-width: 1280px; margin: 0 auto; padding: 0 52px; }
     @media (max-width: 768px) { .container { padding: 0 24px; } }
 
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement-bar {
+      position: fixed; top: var(--nav-h); left: 0; right: 0;
+      z-index: 999;
+      background: linear-gradient(90deg, #0D0D0D 0%, #1a1400 50%, #0D0D0D 100%);
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 9px 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.85);
+      animation: barFadeIn 0.8s ease 0.5s both;
+    }
+    @keyframes barFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .announcement-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold), 0 0 16px rgba(201,168,76,0.4);
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 8px var(--gold), 0 0 16px rgba(201,168,76,0.4); }
+      50% { transform: scale(1.3); opacity: 0.7; box-shadow: 0 0 14px var(--gold), 0 0 28px rgba(201,168,76,0.6); }
+    }
+    .announcement-text { color: rgba(255,255,255,0.85); }
+    .announcement-text span { color: var(--gold); font-weight: 600; }
+    .announcement-cta {
+      margin-left: 12px; padding: 3px 12px;
+      border: 1px solid rgba(201,168,76,0.5); border-radius: 2px;
+      color: var(--gold); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .announcement-cta:hover { background: var(--gold); color: #000; }
+
     /* ── NAV ── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
@@ -426,6 +460,12 @@
 </div>
 
 <!-- HERO -->
+<div class="announcement-bar">
+  <div class="announcement-dot"></div>
+  <p class="announcement-text">Currently booking for <span>April 2026</span> — Limited spots available</p>
+  <a href="#booking" class="announcement-cta">Reserve Yours</a>
+</div>
+
 <section class="hero" id="home">
   <div class="hero-sticky">
     <canvas class="hero-canvas" id="heroCanvas"></canvas>
